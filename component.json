@@ -1,0 +1,10 @@
+{
+  "name": "because-visualization",
+  "version": "0.0.0",
+  "dependencies": {
+    "flat-ui": "latest",
+    "jquery": "~1.9.1",
+    "d3": "~3.1.5",
+    "modernizr": "~2.6.2"
+  }
+}
