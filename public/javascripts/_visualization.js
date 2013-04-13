@@ -23,8 +23,6 @@ d3.csv('/data/dummy-data.csv', function(error, dataset) {
   };
   var range = maxValue - minValue;
   
-  alert("High Number: " + maxValue + "; Low Number: " + minValue);
-  
   // Append some text to the screen based on the data
   svg.selectAll('rect')
     .data(dataset)
