@@ -1,7 +1,7 @@
 // Create an SVG
-var w = 500, h = 500, padding = 1;
+var w = 940, h = 500, padding = 1;
 
-var svg = d3.select('body')
+var svg = d3.select('#visualization')
   .append('svg')
   .attr('width', w)
   .attr('height', h);
@@ -23,22 +23,23 @@ d3.csv('/data/dummy-data.csv', function(error, dataset) {
   };
   var range = maxValue - minValue;
   
-  // Append some text to the screen based on the data
+  // Append some bars to the screen based on the data
   svg.selectAll('rect')
     .data(dataset)
     .enter()
     .append('rect')
+    .attr('fill', 'rgb(93, 173, 226)')
     .attr('x', function (d, i) {
       return i * (w / dataset.length);
     })
     .attr('y', function (d, i) {
-      return 0;
+      return h - (d.Data - minValue) / range * h + (h / 20) - 5;
     })
     .attr('width', function (d, i) {
       return w / dataset.length - padding;
     })
     .attr('height', function (d, i) {
-      return (d.Data - minValue) / range * h + (h / 20);
+      return (d.Data - minValue) / range * h + (h / 20) + 5;
     });
 
 });
