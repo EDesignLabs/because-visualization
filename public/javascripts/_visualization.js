@@ -1,3 +1,22 @@
+var cycleColor = (function () {
+  var colors = [
+    "#16a085",
+    "#27ae60",
+    "#2980b9",
+    "#8e44ad",
+    "#2c3e50",
+    "#f39c12",
+    "#d35400",
+    "#c0392b"
+  ]
+  
+  return function () {
+    color = colors.shift();
+    colors.push(color);
+    return color;
+  }
+})();
+
 // Create an SVG
 var w = 940, h = 500, padding = 1;
 
@@ -36,7 +55,7 @@ d3.csv('/data/dummy-data.csv', function(error, dataset) {
     .data(dataset)
     .enter()
     .append('rect')
-    .attr('fill', 'rgb(93, 173, 226)')
+    .attr('fill', cycleColor)
     .attr('x', function (d, i) {
       return i * (w / dataset.length);
     })
@@ -48,6 +67,9 @@ d3.csv('/data/dummy-data.csv', function(error, dataset) {
     })
     .attr('height', function (d, i) {
       return determineBarHeight(d.Data);
+    }).
+    attr('data-value', function (d, i) {
+      return d.Data
     });
 
 });
