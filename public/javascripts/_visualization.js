@@ -26,6 +26,11 @@ d3.csv('/data/dummy-data.csv', function(error, dataset) {
   var range = maxValue - minValue + 5;
   minValue = minValue - (h / 100);
   
+  // For some reason, this doesn't work when determining the y-offset.
+  function determineBarHeight(value) {
+    return (value - minValue) / range * h + (h / 20);
+  }
+  
   // Append some bars to the screen based on the data
   svg.selectAll('rect')
     .data(dataset)
@@ -42,7 +47,7 @@ d3.csv('/data/dummy-data.csv', function(error, dataset) {
       return w / dataset.length - padding;
     })
     .attr('height', function (d, i) {
-      return (d.Data - minValue) / range * h + (h / 20);
+      return determineBarHeight(d.Data);
     });
 
 });
