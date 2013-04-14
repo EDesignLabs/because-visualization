@@ -16,12 +16,15 @@ d3.csv('/data/dummy-data.csv', function(error, dataset) {
   
   // TODO: Column names are static and that's a terrible idea.
   
+  // Scale the visualization based on the range of values.
   var maxValue = h, minValue;
   for (var i = dataset.length - 1; i >= 0; i--){
     if ( dataset[i].Data > maxValue ) maxValue = dataset[i].Data;
     if ( minValue === undefined || dataset[i].Data < minValue ) minValue = dataset[i].Data;
   };
-  var range = maxValue - minValue;
+  // Adjust the range and lowest value so that it doesn't get adjusted to zero.
+  var range = maxValue - minValue + 5;
+  minValue = minValue - (h / 100);
   
   // Append some bars to the screen based on the data
   svg.selectAll('rect')
@@ -33,13 +36,13 @@ d3.csv('/data/dummy-data.csv', function(error, dataset) {
       return i * (w / dataset.length);
     })
     .attr('y', function (d, i) {
-      return h - (d.Data - minValue) / range * h + (h / 20) - 5;
+      return h - (d.Data - minValue) / range * h + (h / 20);
     })
     .attr('width', function (d, i) {
       return w / dataset.length - padding;
     })
     .attr('height', function (d, i) {
-      return (d.Data - minValue) / range * h + (h / 20) + 5;
+      return (d.Data - minValue) / range * h + (h / 20);
     });
 
 });
