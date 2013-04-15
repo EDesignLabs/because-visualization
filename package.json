@@ -8,10 +8,6 @@
   "dependencies": {
     "express": "3.0.6",
     "jade": "*",
-    "underscore": "~1.4.4",
-    "csv": "~0.3.0",
-    "tabletop": "0.0.0",
-    "miso.dataset": "~0.4.1",
-    "request": "~2.16.6"
+    "underscore": "~1.4.4"
   }
 }
