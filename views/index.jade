@@ -2,4 +2,10 @@ extends layout
 
 block content
   h1= title
-  #visualization
+  #visualization-container
+    #y-axis
+    #visualization
+  #slider
+  #data-source.input-append
+    input#google-spreadsheet.span10(type='text', value=data)
+    button#regenerate.btn Regenerate!

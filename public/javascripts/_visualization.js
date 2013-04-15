@@ -67,8 +67,8 @@ d3.csv('/data/dummy-data.csv', function(error, dataset) {
     })
     .attr('height', function (d, i) {
       return determineBarHeight(d.Data);
-    }).
-    attr('data-value', function (d, i) {
+    })
+    .attr('data-value', function (d, i) {
       return d.Data
     });
 

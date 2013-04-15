@@ -1,0 +1,17 @@
+#visualization-container {
+  position: relative;
+  font-family: Arial, Helvetica, sans-serif;
+}
+#chart {
+  position: relative;
+  left: 40px;
+}
+#y-axis {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+}
+#slider {
+  margin: 1em 0 1em 0;
+}
