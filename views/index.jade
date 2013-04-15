@@ -6,6 +6,17 @@ block content
     #y-axis
     #visualization
   #slider
-  #data-source.input-append
-    input#google-spreadsheet.span10(type='text', value=data)
-    button#regenerate.btn Regenerate!
+  .row
+    .span12
+      #data-source.input-append
+        h3 Publish a Google Spreadsheet and Pop in the Link
+        input#google-spreadsheet.span10(type='text', value=data)
+        button#regenerate.btn Regenerate!
+  .row
+    .span6
+      h3 Prepare Your Data
+      p As of this moment, your data needs to be in two columns: <code>year</code> and <code>data</code>. The first row is of your spreadsheet will serve as column headings, so keep that in mind. Right now, Because only supports time in terms of years. This will change, but that's life for now.
+      p Another limitation is that it only supports one column of data. This is also just a short-term limitation.
+    .span6
+      h3 Publish Your Data
+      p Once you're data is ready. Click on the <code>File</code> menu and select <code>Publish</code>. Take that link and pop it into the box above and click on <code>Regerate!</code>. Keep in mind, this is alpha-level software and things are likely to break.
