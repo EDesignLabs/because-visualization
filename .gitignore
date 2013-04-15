@@ -3,3 +3,4 @@ components
 *.un~
 node_modules
 components.json
+*.log
