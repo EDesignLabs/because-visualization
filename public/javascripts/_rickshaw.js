@@ -8,7 +8,7 @@ $(document).ready(function () {
   pullDataFromGoogleSpreadsheet($dataSource.val());
   
   $('button#regenerate').on('click', function () {
-    $yAxis = $yAxis || $('y-axis');
+    $yAxis = $yAxis || $('#y-axis');
     $visualization.html('');
     pullDataFromGoogleSpreadsheet($dataSource.val());
   })
