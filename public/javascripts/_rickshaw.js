@@ -1,12 +1,14 @@
 $(document).ready(function () {
 
   var $dataSource = $('#google-spreadsheet'),
-      $visualization = $('#visualization');
-  
+      $visualization = $('#visualization')
+      $yAxis;
+      // The Y-Axis will be lazily instantiated if needed.
   
   pullDataFromGoogleSpreadsheet($dataSource.val());
   
   $('button#regenerate').on('click', function () {
+    $yAxis = $yAxis || $('y-axis');
     $visualization.html('');
     pullDataFromGoogleSpreadsheet($dataSource.val());
   })
@@ -74,8 +76,6 @@ $(document).ready(function () {
         graph: graph,
         element: document.querySelector('#slider')
     });
-    
-
     
   }
   
