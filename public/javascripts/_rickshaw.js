@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
   var $dataSource = $('#google-spreadsheet'),
-      $visualization = $('#visualization')
+      $visualization = $('#visualization'),
       $yAxis;
       // The Y-Axis will be lazily instantiated if needed.
   
@@ -9,6 +9,7 @@ $(document).ready(function () {
   
   $('button#regenerate').on('click', function () {
     $yAxis = $yAxis || $('#y-axis');
+    $yAxis.html('');
     $visualization.html('');
     pullDataFromGoogleSpreadsheet($dataSource.val());
   })
@@ -66,11 +67,6 @@ $(document).ready(function () {
     
     yAxis.render();
     xAxis.render();
-    
-    // var annotator = new Rickshaw.Graph.Annotate({
-    //     graph: graph,
-    //     element: document.getElementById('timeline')
-    // });
     
     var slider = new Rickshaw.Graph.RangeSlider({
         graph: graph,
